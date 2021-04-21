@@ -12,12 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Food.belongsToMany(models.Customer, {through: models.Order})
+      Food.hasMany(models.Order)
     }
   };
   Food.init({
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER
+    stock: DataTypes.INTEGER,
+    img: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Food',
