@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const {Customer} = require('../models/index')
 
 
@@ -7,7 +8,8 @@ class logController {
     }
 
     static signIn(req, res) {
-        res.send('ini signin')
+        // res.send('ini signin')
+        res.render('signin.ejs')
     }
 
     static postLogin(req, res) {
