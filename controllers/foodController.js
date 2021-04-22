@@ -1,11 +1,21 @@
-const { Food } = require('../models/index')
+const { Food, Customer, Order } = require('../models/index')
 const toRupiah = require('../helper/toRupiah')
 class foodController {
     static list(req, res) {
         // res.send('ini list')
+        let food
         Food.findAll()
             .then((data) => {
-                res.render('foods', { data, toRupiah })
+                // console.log(data)
+                // res.render('foods', { data, toRupiah })
+                food = data
+                console.log(food)
+                return Customer.findByPk(req.session.customerId)
+            })
+            .then((cust) => {
+                console.log(cust)
+                res.render('foods', {food, cust, toRupiah
+                })
             })
             .catch((err) => {
                 res.send(err.message)

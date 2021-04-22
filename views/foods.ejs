@@ -7,6 +7,12 @@
    <div class="container">
     <h1>Menu</h1>
   </div><br>
+
+  <div class="container">
+		<div class="alert alert-danger mb-3" role="alert">
+			<p>Hello <%= cust.name %> !,  you have <%= cust.currency() %></p> 
+		</div>
+	</div>
     <div class="container">
         <table class="table">
             <tr>
@@ -16,13 +22,13 @@
                 <th>Stock</th>
                 <th>Action</th>
             </tr>
-            <% data.forEach(food => { %>
+            <% food.forEach(el => { %>
                 <tr>
-                  <td><img src="<%= food.img %>" class="rounded" width="150rem"></td>
-                  <td><%= food.name %> </td>
-                  <td><%= toRupiah(food.price) %> </td>
-                  <td><%= food.stock %> </td>
-                  <td><a href="/foods/buy/<%=food.id%>"><button type="submit" class="btn btn-primary" class="btn-sm">Buy</button></a></td>
+                  <td><img src="<%= el.img %>" class="rounded" width="150rem"></td>
+                  <td><%= el.name %> </td>
+                  <td><%= toRupiah(el.price) %> </td>
+                  <td><%= el.stock %> </td>
+                  <td><a href="/foods/buy/<%=el.id%>"><button type="submit" class="btn btn-primary" class="btn-sm">Buy</button></a></td>
                 </tr>
                <% }) %>
         </table>

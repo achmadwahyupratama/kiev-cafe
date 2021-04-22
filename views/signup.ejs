@@ -7,6 +7,14 @@
       <h1>Hello Sobat Kiev</h1>
     </div>
   
+	<div class="container">
+        <% err.forEach(e => { %>
+            <div class="alert alert-danger mb-3" role="alert">
+                <%= e %> 
+            </div>
+        <% }) %>
+    </div>
+
     <div class="container">
       <form action="/signup" method="POST">
         

@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsToMany(models.Food, {through: models.Order, foreignKey: 'FoodId'})
-      this.hasMany(models.Order)
+      Customer.belongsToMany(models.Food, {through: models.Order, foreignKey: 'FoodId'})
+      Customer.hasMany(models.Order)
     }
 
     currency() {
