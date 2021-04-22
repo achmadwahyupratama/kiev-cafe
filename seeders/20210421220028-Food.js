@@ -1,7 +1,11 @@
 'use strict';
-
+const food = require('../data/foods.json')
+food.forEach(el => {
+  el.createdAt = new Date(),
+  el.updatedAt = new Date()
+})
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up:  (queryInterface, Sequelize) => {
     /**
      * Add seed commands here.
      *
@@ -11,14 +15,17 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    return queryInterface.bulkInsert('Foods', food, {})
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down:  (queryInterface, Sequelize) => {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+
+    return queryInterface.bulkDelete('Foods', null, {A})
   }
 };
