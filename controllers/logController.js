@@ -8,12 +8,10 @@ class logController {
     }
 
     static signIn(req, res) {
-        // res.send('ini signin')
-        res.render('signin.ejs')
+        res.render('signin.ejs', {err: ''})
     }
 
     static postSignIn(req, res) {
-        console.log('masukk');
         Customer.findOne({
             where: {
                 username: req.body.username
@@ -27,11 +25,11 @@ class logController {
                     req.session.customerId = data.id
                     res.redirect('/')
                 } else {
-                    res.redirect('/signin')
+                    res.render('signin', {err: "Invalid Password"})
                 }
             })
             .catch(err => {
-                res.send(err)
+                res.render('signin', {err: 'invalid username'})
             })
     }
 
@@ -42,12 +40,10 @@ class logController {
 
     static signUp(req, res) {
         // res.send('ini signUp')
-        res.render('signup.ejs')
+        res.render('signup.ejs', {err: []})
     }
 
     static postSignUp(req, res) { 
-        // console.log(req.body.password);
-        // console.log(hash);
         let newCustomer = {
             name: req.body.name,
             password: req.body.password,
@@ -56,10 +52,17 @@ class logController {
             money: req.body.money
         }
         Customer.create(newCustomer)
-            .then((data)=>{
+            .then(()=>{
                 res.redirect('/signin')
             })
             .catch((err)=>{
+                if (err.name === 'SequelizeValidationError') {
+                    let errValid = []
+                    for (let i = 0; i < err.errors.length; i++) {
+                        errValid.push(err.errors[i].message)
+                    }
+                    res.render('signup', {err: errValid})
+                }
                 res.send(err)
             })
 
