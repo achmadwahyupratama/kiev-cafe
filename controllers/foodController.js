@@ -1,5 +1,5 @@
 const { Food } = require('../models/index')
-const toRupiah = require('../helpers/toRupiah')
+const toRupiah = require('../helper/toRupiah')
 class foodController {
     static list(req, res) {
         // res.send('ini list')
