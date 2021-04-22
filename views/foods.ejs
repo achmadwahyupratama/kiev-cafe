@@ -5,19 +5,27 @@
    <%- partial('partials/navbar') %> 
 
    <div class="container">
-    <h1>Product List</h1>
+    <h1>Menu</h1>
   </div><br>
-  
-  <div class="container">
-    <table>
-        <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Action</th>
-        </tr>
-    </table>
-  </div>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </tr>
+            <% data.forEach(food => { %>
+                <tr>
+                  <td><img src="<%= food.img %>" class="rounded" width="150rem"></td>
+                  <td><%= food.name %> </td>
+                  <td><%= toRupiah(food.price) %> </td>
+                  <td><%= food.stock %> </td>
+                  <td><a href="/foods/buy/<%=food.id%>"><button type="submit" class="btn btn-primary" class="btn-sm">Buy</button></a></td>
+                </tr>
+               <% }) %>
+        </table>
+    </div>
 </body>
 </html>
