@@ -22,6 +22,7 @@ class logController {
                 if (passwordValid) {
                     req.session.isSignedIn = true
                     req.session.username = data.username
+                    req.session.email = data.email
                     req.session.customerId = data.id
                     res.redirect('/')
                 } else {

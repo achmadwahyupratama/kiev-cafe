@@ -15,13 +15,15 @@
                 <th>Quantity</th>
                 <th>Action</th>
             </tr>
+                <% data.forEach(element => { %>
+                    <tr>
+                        <td><%= element.Food.name %> </td>
+                        <td><%= element.Food.price %> </td>
+                        <td><%= element.Order.orderedQty %> </td>
+                        <td><button type="submit" class="btn btn-success"><a href="/customers/<%= element.Food.id %> /update/<%= element.Customer.id %> ">Edit</a></button>||<button class="btn btn-warning" onclick="return confirm('confirm to delete this data ?')"><a href="/customers/<%= element.Food.id %> /delete/<%= element.Customer.id %>">Delete</a></button></td>
+                    </tr>
+                <% }) %>
 
-            <tr>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td><button type="submit" class="btn btn-success"><a href="/customers/:FoodId/update/:CustomerId">Edit</a></button>||<button class="btn btn-warning" onclick="return confirm('confirm to delete this data ?')"><a href="/customers/:FoodId/delete/:CustomerId">Delete</a></button></td>
-            </tr>
         </table><br>
         <button type="submit" class="btn btn-primary">Checkout</button>
     </div>

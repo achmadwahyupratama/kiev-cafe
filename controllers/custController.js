@@ -4,16 +4,30 @@ class custController {
         // res.send('ini cust controller')
         // console.log(req.session.customerId)
         let id = +req.session.customerId
-        Customer.findAll({
-            include: Food
+        Order.findAll({
+            include: [Food, Customer]
         })
             .then((data) => {
                 console.log(data)
-                res.render('listOrder')
+                res.render('listOrder.ejs', {data})
+                // res.render('listOrder')
             })
             .catch((err) => {
                 res.send(err.message)
             })
+
+            // Customer.findAll({
+            //     include: [Food],
+            //     where: {
+            //         id: req.session.customerId
+            //     }
+            // })
+            //     .then((data)=> {
+            //         res.send(data)
+            //     })
+            //     .catch((err)=>{
+            //         res.send(err)
+            //     })
     }
 
     static checkout(req, res) {

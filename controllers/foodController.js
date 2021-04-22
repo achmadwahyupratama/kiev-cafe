@@ -22,6 +22,11 @@ class foodController {
         Food.findByPk(id)
             .then((data) => {
                 data.decrement('stock')
+            })
+            .then((data)=>{
+                return Order.addToList(req.session.customerId, id)
+            })
+            .then((data)=>{
                 res.redirect('/foods')
             })
             .catch((err) => {

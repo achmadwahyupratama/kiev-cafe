@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       validate: {
-        isAlphanumeric: {
-          msg: 'symbol not allowed !'
+        notEmpty: {
+          msg: 'name is require !'
         }
       }
     },
@@ -71,6 +71,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Customer',
+    tableName: 'Customers'
   });
 
   Customer.beforeCreate((newCustomer)=>{
