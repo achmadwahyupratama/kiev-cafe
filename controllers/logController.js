@@ -12,12 +12,32 @@ class logController {
         res.render('signin.ejs')
     }
 
-    static postLogin(req, res) {
-
+    static postSignIn(req, res) {
+        console.log('masukk');
+        Customer.findOne({
+            where: {
+                username: req.body.username
+            }
+        })
+            .then((data)=>{
+                let passwordValid = bcrypt.compareSync(req.body.password, data.password)
+                if (passwordValid) {
+                    req.session.isSignedIn = true
+                    req.session.username = data.username
+                    req.session.customerId = data.id
+                    res.redirect('/')
+                } else {
+                    res.redirect('/signin')
+                }
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
-    static logOut(req, res) {
-        res.send('ini logout')
+    static signOut(req, res) {
+        req.session.destroy()
+        res.redirect('/signin')
     }
 
     static signUp(req, res) {
