@@ -12,7 +12,8 @@ router.get('/signout', logController.signOut)
 router.get('/signup', logController.signUp)
 router.post('/signup', logController.postSignUp)
 
+router.use(isSignedIn)
 router.get('/', logController.home)
-router.use('/foods', isSignedIn, food)
-router.use('/customers',isSignedIn, cust)
+router.use('/foods', food)
+router.use('/customers', cust)
 module.exports = router

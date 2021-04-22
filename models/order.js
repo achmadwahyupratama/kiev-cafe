@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Customer, {foreignKey: "CustomerId"})
       this.belongsTo(models.Food, {foreignKey: "FoodId"})
     }
+
+    
   };
   Order.init({
     CustomerId: DataTypes.INTEGER,
