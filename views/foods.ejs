@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- partial('partials/head', {title : 'Foods'}) %> 
+<%- include('partials/head', {title : 'Foods'}) %> 
 <body>
-   <%- partial('partials/navbar') %> 
+   <%- include('partials/navbar') %> 
 
    <div class="container">
     <h1>Menu</h1>
   </div><br>
     <div class="container">
-        <table>
+        <table class="table">
             <tr>
                 <th>Picture</th>
                 <th>Name</th>

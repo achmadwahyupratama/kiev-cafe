@@ -26,6 +26,6 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
 
-    return queryInterface.bulkDelete('Foods', null, {A})
+    return queryInterface.bulkDelete('Foods', null, {})
   }
 };

@@ -13,7 +13,16 @@ class foodController {
     }
 
     static buy(req, res) {
-        res.send('ini buy')
+        const id = +req.params.id
+        Food.findByPk(id)
+            .then((data) => {
+                data.decrement('stock')
+                // res.send(data)
+                res.redirect('/foods')
+            })
+            .catch((err) => {
+                res.send(err.message)
+            })
     }
 }
 
