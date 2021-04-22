@@ -4,7 +4,7 @@ const cust = require('./customerRouter')
 const logController = require('../controllers/logController')
 
 router.get('/signin', logController.signIn)
-router.post('/sigin', logController.postLogin)
+router.post('/signin', logController.postLogin)
 
 router.get('/logout', logController.logOut)
 
