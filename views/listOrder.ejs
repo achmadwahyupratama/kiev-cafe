@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {title: 'Order List'}) %> 
+<body>
+    <%- include('partials/navbar') %> 
+    <div class="container">
+        <h1>Your List Order: </h1>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td><button type="submit" class="btn btn-success"><a href="/customers/:FoodId/update/:CustomerId">Edit</a></button>||<button class="btn btn-warning" onclick="return confirm('confirm to delete this data ?')"><a href="/customers/:FoodId/delete/:CustomerId">Delete</a></button></td>
+            </tr>
+        </table><br>
+        <button type="submit" class="btn btn-primary">Checkout</button>
+    </div>
+</body>
+</html>
