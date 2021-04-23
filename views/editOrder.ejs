@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {title: 'Edit Order'}) %> 
+<body>
+    <%- include('partials/navbar') %> 
+
+    <div class="container">
+        <form action="/customers/<%= +data[0].FoodId %> /update/<%= +data[0].CustomerId %> " method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="<%= data[0].Food.name %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" name="quantity" value="<%= data[0].orderedQty %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" style="text-decoration: none; color: white;" class="btn btn-danger"><a href="/customers/listOrder">Cancel</a></button>
+        </form><br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {title : 'Foods'}) %> 
+<body>
+   <%- include('partials/navbar') %> 
+
+   <div class="container">
+    <h1>Menu</h1>
+  </div><br>
+
+  <div class="container">
+		<div class="alert alert-danger mb-3" role="alert">
+			<p>Hello <%= cust.name %> !,  you have <%= cust.currency() %></p> 
+		</div>
+	</div>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </tr>
+            <% food.forEach(el => { %>
+                <tr>
+                  <td><img src="<%= el.img %>" class="rounded" width="150rem"></td>
+                  <td><%= el.name %> </td>
+                  <td><%= toRupiah(el.price) %> </td>
+                  <td><%= el.stock %> </td>
+                  <td><a href="/foods/buy/<%=el.id%>"><button type="submit" class="btn btn-primary" class="btn-sm">Buy</button></a></td>
+                </tr>
+               <% }) %>
+        </table>
+    </div>
+</body>
+</html>
