@@ -1,0 +1,1 @@
+web : npm i -D nsequelize node app.js
