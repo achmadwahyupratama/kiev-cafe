@@ -18,14 +18,14 @@
                 <% data.forEach(element => { %>
                     <tr>
                         <td><%= element.Food.name %> </td>
-                        <td><%= element.Food.price %> </td>
-                        <td><%= element.Order.orderedQty %> </td>
+                        <td><%= toRupiah(element.Food.price) %> </td>
+                        <td><%= element.orderedQty %> </td>
                         <td><button type="submit" class="btn btn-success"><a href="/customers/<%= element.Food.id %> /update/<%= element.Customer.id %> ">Edit</a></button>||<button class="btn btn-warning" onclick="return confirm('confirm to delete this data ?')"><a href="/customers/<%= element.Food.id %> /delete/<%= element.Customer.id %>">Delete</a></button></td>
                     </tr>
                 <% }) %>
 
         </table><br>
-        <button type="submit" class="btn btn-primary">Checkout</button>
+        <a href="/customers/checkout"><button type="submit" class="btn btn-primary">Checkout</button></a>
     </div>
 </body>
 </html>

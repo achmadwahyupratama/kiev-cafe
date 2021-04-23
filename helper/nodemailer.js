@@ -7,13 +7,13 @@ function sendEmail(to, subject, text){
       secure: true,
       auth: {
         type: 'login',
-        user: 'tuandaunplantstore@gmail.com',
-        pass: 'tuandaun123',
+        user: 'kievcafe11@gmail.com',
+        pass: 'hacktiv8123',
       }
     })
   
     let mailOptions = {
-      from: 'tuandaunplantstore@gmail.com',
+      from: 'kievcafe11@gmail.com',
       to: `${to}`,
       subject: `${subject}`,
       text: `${text}`
@@ -30,7 +30,7 @@ function sendEmail(to, subject, text){
   
   
   function send(to, text) {
-    let subject = 'Thank You For Coming ^^ By Tuan Daun'
+    let subject = 'Thank You For Coming ^^ By Kiex Cafe'
     let email = to
     let message = text
     sendEmail(email, subject, message)
